@@ -20,8 +20,8 @@ class PluginPageSettings
     // Add filters to the wp.
     public function init()
     {
-
-        ( $this->PluginOptions[ 'auto_update' ] == true) ? add_filter( 'auto_update_plugin', array( $this, 'setPluginAutoUpdateTrue' ), 10, 2 ) : null;
+		// FIXED: 20200921 - disabled forced auto-update
+        //( $this->PluginOptions[ 'auto_update' ] == true) ? add_filter( 'auto_update_plugin', array( $this, 'setPluginAutoUpdateTrue' ), 10, 2 ) : null;
         add_filter( 'plugin_action_links_' . $this->PluginOptions[ 'basename' ], array( $this , 'renderPluginsPageLinks' ) );
         add_filter( 'plugin_row_meta', array( $this , 'renderPluginRowMetaLinks'), 10, 2 );
 
