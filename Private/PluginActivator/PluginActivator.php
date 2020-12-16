@@ -19,14 +19,14 @@ class PluginActivator
 
     }
 
-    public function activate() 
+    public function activate()
     {
 
         $this->ActivationSequence->init();
 
     }
 
-    public function deactivate() 
+    public function deactivate()
     {
 
         $this->DeactivationSequence->init();

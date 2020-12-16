@@ -27,12 +27,40 @@ class CustomCurrencyForWooCommerce
         $pluginPageSettings = new PluginPageSettings( $this->PluginOptions );
         $pluginPageSettings->init();
 
+        add_action( 'plugins_loaded', array( $this, 'isWooCommerceActive'), 11 );
+
         add_filter( 'woocommerce_currencies', array( $this, 'addCustomCurrency' ) );
         add_filter( 'woocommerce_currency_symbol', array( $this, 'setCustomCurrencySymbol' ) , 10, 2 );
         add_filter( 'woocommerce_general_settings', array( $this, 'addCustomCurrencySettings' ) );
 
     }
 
+    // Print an admin notice if WooCommerce is deactivated
+    public function isWooCommerceActive()
+    {
+
+        if ( ! function_exists( 'WC' ) )
+        {
+
+            add_action( 'admin_notices', function()
+            {
+                ?>
+                    <div class="notice notice-error">
+                        <p>
+                            <?php
+                                echo __(
+                                    "Alert :: Custom Currency For WooCommerce is enabled but not effective. It requires WooCommerce in order to work.",
+                                    $this->PluginOptions[ 'text_domain' ]
+                                );
+                            ?>
+                        </p>
+                    </div>
+                <?php
+            } );
+
+        }
+
+    }
 
     // Adding a custom currency to the WooCommerce that saved in wp-settings.
     public function addCustomCurrency( $wooCurrency )
@@ -104,7 +132,7 @@ class CustomCurrencyForWooCommerce
 
                 $newSettings[] = array(
                     'name'     => 'Custom Currency',
-                    'desc'     => __( 'IMPORTANT: Make sure this currency type supports your payment gateway. otherwise, payments will NOT be processed. leave empty to use the original currency type. or use the international currency code. ex. "USD" for the United States Dolar or "LKR" for the Sri Lankan Rupees.', $this->PluginOptions[ 'text_domain' ] ),
+                    'desc'     => __( 'IMPORTANT: Make sure this currency type supports your payment gateway. otherwise, payments will NOT be processed. leave empty to use the original currency type. or use the international currency code. ex. "USD" for the United States Dollar or "LKR" for the Sri Lankan Rupees.', $this->PluginOptions[ 'text_domain' ] ),
                     'desc_tip' => __( 'Enter a custom currency name here. If you set make sure you set the custom symbol for this currency type. If empty, the default for the selected currency will be used instead.', $this->PluginOptions[ 'text_domain' ] ),
                     'id'       => 'custom_currency',
                     'type'     => 'text',
