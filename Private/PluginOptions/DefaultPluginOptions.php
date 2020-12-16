@@ -30,7 +30,7 @@
         'dir_url' => str_replace( 'Private/PluginOptions/', '', plugin_dir_url( __FILE__ ) ) ,
 
         // Current plugin version. update it as you release new versions.
-        'version' => '1.0.0',
+        'version' => '1.2.0',
 
         // Plugin DIR path
         'path' => str_replace( 'Private/PluginOptions/', '', str_replace( '\\', '/', plugin_dir_path( __FILE__ ) ) ),
@@ -59,7 +59,7 @@
         // Plugin upgrade url
         'upgrade_url' => '',
 
-        // Plugin auto update enable/desable
+        // Plugin auto update enable/disable
         'auto_update' => true,
 
         '' => '',
