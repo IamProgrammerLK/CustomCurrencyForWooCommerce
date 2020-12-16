@@ -9,8 +9,8 @@
  * File Description:    This file is read by WordPress to generate the plugin information in the plugin admin area.
  *                      This file also includes all of the dependencies used by the plugin, registers the activation
  *                      and deactivation functions, and defines a function that starts the plugin.
- * File Version:        1.1.1
- * Last Change:         2020-09-20
+ * File Version:        1.2.0
+ * Last Change:         2020-12-16
  * 
  * @copyright
  * Copyright:           Copyright (C) IamProgrammerLK - All Rights Reserved
@@ -31,7 +31,7 @@
  * Requires PHP:        7.0
  * Text Domain:         CCForWC
  * Domain Path:         /Public/Languages
- * Version:             1.1.1
+ * Version:             1.2.0
  * Author:              I am Programmer
  * Author URI:          https://iamprogrammer.lk
  * License:             GNU GENERAL PUBLIC LICENSE
