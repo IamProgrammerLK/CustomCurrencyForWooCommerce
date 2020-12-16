@@ -42,7 +42,7 @@
         'author_url' => 'https://iamprogrammer.lk',
 
          // Plugin url
-        'url' => 'https://iamprogrammer.lk/custom-currency-for-woocommerce/',
+        'url' => 'https://wordpress.org/plugins/custom-currency-for-woocommerce/',
 
         // Plugin settings page url
         'settings_url' => 'admin.php?page=wc-settings&tab=general',
